@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StatisticsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: ${p => p.theme.spacing(4)};
 `;
 
 export const StatisticsValue = styled.p`

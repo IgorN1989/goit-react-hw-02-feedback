@@ -1,13 +1,26 @@
 import styled from 'styled-components';
 
+const getBgColor = ({ $value, theme }) => {
+  switch ($value) {
+    case 'good':
+      return theme.colors.good;
+    case 'neutral':
+      return theme.colors.neutral;
+    case 'bad':
+      return theme.colors.bad;
+    default:
+      return null;
+  }
+};
+
 export const FeedbackOptionsContainer = styled.div`
   display: flex;
-  gap: 20px;
+  gap: ${p => p.theme.spacing(4)};
 `;
 
 export const FeedbackBtn = styled.button`
   cursor: pointer;
-  padding: 8px 16px;
+  padding: ${p => p.theme.spacing(2)} ${p => p.theme.spacing(4)};
   border-radius: 5px;
   border: none;
   min-width: 75px;
@@ -20,14 +33,6 @@ export const FeedbackBtn = styled.button`
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: ${({ $value }) => {
-      if ($value === 'good') {
-        return 'rgb(0, 211, 0, 0.5)';
-      } else if ($value === 'neutral') {
-        return 'rgb(248, 248, 0, 0.7)';
-      } else {
-        return 'rgb(255, 99, 71, 0.7)';
-      }
-    }};
+    background-color: ${getBgColor};
   }
 `;

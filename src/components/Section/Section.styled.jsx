@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionContainer = styled.section`
-  padding: 30px;
+  padding: ${p => p.theme.spacing(4)};
 `;
 
 export const SectionTitle = styled.h2`

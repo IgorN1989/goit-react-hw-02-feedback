@@ -3,16 +3,16 @@ import {
   FeedbackBtn,
 } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ onLeaveFeedback }) => (
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <FeedbackOptionsContainer>
-    <FeedbackBtn $value="good" onClick={() => onLeaveFeedback('good')}>
-      Good
-    </FeedbackBtn>
-    <FeedbackBtn $value="neutral" onClick={() => onLeaveFeedback('neutral')}>
-      Neutral
-    </FeedbackBtn>
-    <FeedbackBtn $value="bad" onClick={() => onLeaveFeedback('bad')}>
-      Bad
-    </FeedbackBtn>
+    {options.map(option => (
+      <FeedbackBtn
+        key={option}
+        $value={option}
+        onClick={() => onLeaveFeedback(option)}
+      >
+        {option}
+      </FeedbackBtn>
+    ))}
   </FeedbackOptionsContainer>
 );
